@@ -4,7 +4,7 @@ function Todo({todo, onUpdate}) {
     const [thisTodo, setTodo] = useState(todo);
     const [isEdit, setIsEdit] = useState(todo);
     const onTodoChange = (event) => {
-onUpdateCompleted({...thisTodo, completed: !thisTodo.completed});
+// onUpdateCompleted({...thisTodo, completed: !thisTodo.completed});
     };
    
     const onDeleteClick = () => {
@@ -19,7 +19,7 @@ onUpdateCompleted({...thisTodo, completed: !thisTodo.completed});
     
     return (
         <div>
-        <input type = "checkbox" checked = {todo.completed}></input>
+        {/* <input type = "checkbox" checked = {todo.completed} onChange={onTodoChange}></input> */}
         {todo.title}
         </div>
     );

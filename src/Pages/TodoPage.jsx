@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "../App.css";
-import Todo from "../components/todo";
+import Todo from "../components/Todo";
 
-function AppPage() {
+function TodoPage() {
   const createdAt = new Date();
 
   // let todos = [
@@ -30,7 +30,7 @@ const addTodo = () => {
     <div>
       {todos.map((todo) => (
         <Todo key={todo.id} todo={todo} onUpdate={updateTodo}></Todo>
-      ))};
+      ))}
       </div>
     </>
   );
@@ -55,4 +55,4 @@ const addTodo = () => {
 //   </>
 // );
 
-export default AppPage;
+export default TodoPage;
