@@ -1,7 +1,7 @@
 // reducer function - can be called anything
-// takes two arguments: the current state, and the action to be taken
-// action is passed via dispatch, state is stored in component
-const counterReducer = (state, action) => {
+  // takes two arguments: the current state, and the action to be taken
+  // action is passed via dispatch, state is stored in component
+  const counterReducer = (state, action) => {
     switch (
       action.type // switch statements are common in reducers
     ) {
@@ -9,6 +9,10 @@ const counterReducer = (state, action) => {
         return state + 1;
       case "decrement":
         return state - 1;
+      case "incrementByFive":
+        return state + 5;
+      case "decrementByFive":
+        return state - 5;
       default:
         return state;
     }

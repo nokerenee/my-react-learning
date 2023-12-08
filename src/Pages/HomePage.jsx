@@ -1,11 +1,17 @@
 import { useUserContext } from "../Store/UserContext";
-import ReducerCounter from "../components/Counter";
+import ReducerCounter from "../components/Hooks/ReducerCounter";
 import { useCounterContext } from "../Store/CounterContext";
 import Todo from "../components/Todo";
+import ClockDisplay from "../components/Hooks/Clock";
+import ActivityFinder from "../components/Hooks/ActivityFinder";
+import BitcoinRates from "../components/Hooks/BitcoinRates";
+import RefCounter from "../components/Hooks/RefCounter";
+import VideoPlayer from "../components/Hooks/VideoPlayer";
+import PostListReducer from "../components/Hooks/PostListReducer";
 
 export default function Homepage() {
   const { currentUser, handleUpdateUser } = useUserContext();
-  const {counter} = useCounterContext();
+  const { counter } = useCounterContext();
   let email = "";
   const handleSubmit = (e) => {
     e.preventDefault(); // prevent page reloading on form submit
@@ -40,8 +46,14 @@ export function NicolePage() {
   return (
     <div className="Nicole">
       <h1>Nicole's Page</h1>
-      <ReducerCounter></ReducerCounter>
-      <Todo></Todo>
+      <ClockDisplay />
+      <ActivityFinder />
+      <BitcoinRates />
+      <RefCounter />
+      <VideoPlayer />
+      <ReducerCounter/>
+      <PostListReducer/>
+      {/* <Todo /> */}
     </div>
   );
 }

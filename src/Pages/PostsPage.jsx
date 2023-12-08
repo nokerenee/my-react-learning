@@ -1,5 +1,5 @@
 import { Outlet, useParams, Link, useSearchParams } from "react-router-dom";
-import { useData } from "../Hooks/UseData";
+import { useData } from "../components/Hooks/UseData";
 
 export default function PostsPage() {
   return (
