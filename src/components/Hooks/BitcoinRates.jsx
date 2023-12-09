@@ -1,6 +1,7 @@
-// Exercise 1 & 2:
+// Exercise 1 & 2 & 3:
 
 import useBitcoinPrice from "./UseBitcoinPrice"; // Import the custom hook
+import Emoji from "./Emoji";
 
 const currencies = ["USD", "AUD", "NZD", "GBP", "EUR", "SGD"];
 
@@ -31,6 +32,7 @@ function BitcoinRates() {
       ) : (
         <p>Loading...</p>
       )}
+      <Emoji />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { UserProvider } from "./Store/UserContext.jsx";
 import AppRoutes from "./Routes/AppRoutes.jsx";
 import NavBar from "./components/NavBar";
 import { CounterProvider } from "./Store/CounterContext.jsx";
+import { EmojiProvider } from "./Store/EmojiContext";
 import { Provider } from "react-redux";
 import store from "./Store/store";
 import { fetchTodos } from "./Store/Reducers/TodosSlice";
@@ -20,12 +21,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <UserProvider>
         <CounterProvider>
-          <BrowserRouter>
-            <MUITheme>
-              <NavBar></NavBar>
-              <AppRoutes></AppRoutes>
-            </MUITheme>
-          </BrowserRouter>
+          <EmojiProvider>
+            <BrowserRouter>
+              <MUITheme>
+                <NavBar></NavBar>
+                <AppRoutes></AppRoutes>
+              </MUITheme>
+            </BrowserRouter>
+          </EmojiProvider>
         </CounterProvider>
       </UserProvider>
     </Provider>
