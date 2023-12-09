@@ -3,7 +3,8 @@ import ReducerCounter from "../components/Hooks/ReducerCounter";
 import { useCounterContext } from "../Store/CounterContext";
 import Todo from "../components/Todo";
 import ClockDisplay from "../components/Hooks/Clock";
-import ActivityFinder from "../components/Hooks/ActivityFinder";
+import ActivityFinder1 from "../components/Hooks/ActivityFinder1";
+import ActivityFinder2 from "../components/Hooks/ActivityFinder2";
 import BitcoinRates from "../components/Hooks/BitcoinRates";
 import RefCounter from "../components/Hooks/RefCounter";
 import VideoPlayer from "../components/Hooks/VideoPlayer";
@@ -47,7 +48,8 @@ export function NicolePage() {
     <div className="Nicole">
       <h1>Nicole's Page</h1>
       <ClockDisplay />
-      <ActivityFinder />
+      <ActivityFinder1 />
+      <ActivityFinder2/>
       <BitcoinRates />
       <RefCounter />
       <VideoPlayer />

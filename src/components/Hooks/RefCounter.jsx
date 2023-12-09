@@ -17,8 +17,9 @@ export default function RefCounter() {
 
   return (
     <div className="RefCounter componentBox">
-      <button onClick={handleClick}>REFCOUNTER: Click me!</button> Ref:
-      {countRef.current} Var: {count} <br />
+      <button onClick={handleClick}>
+        REFCOUNTER: Click me!
+        </button> Ref: {countRef.current} Var: {count} <br />
       <button onClick={() => setCountState(countState + 1)}>
         STATE COUNTER: Click me to update!
       </button>

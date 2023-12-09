@@ -28,5 +28,5 @@ export default function SubscribeForm() {
   );
 }
 
-// ++ Try adding another form input using the custom hook 
+// ++ Try adding another form input using the custom hook
 // ++ Try creating another form component using the custom hook

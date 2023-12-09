@@ -1,8 +1,7 @@
-import { useEffect, useReducer } from "react"; // continued on next slide
+import { useEffect, useReducer } from "react";
 import axios from "axios"; // first do 'npm install axios' - alternative to fetch
 
 export default function PostListReducer() {
-
   const [postsResult, dispatch] = useReducer(reducer, {
     // initial state for postsResult state variable
     loading: true, // true when loading and no data in posts
@@ -12,7 +11,7 @@ export default function PostListReducer() {
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/posts?_limit=5") // modify this URL to test the error case
+      .get("https://jsonplaceholder.typicode.com/posts?_limit=10") // modify this URL to test the error case
       .then((response) => {
         // object passed to dispatch holds all data needed for updating state: both type of update and associated data
         dispatch({ type: "FETCH_SUCCESS", payload: response.data }); // dispatch calls reducer function and triggers re-render
@@ -28,20 +27,16 @@ export default function PostListReducer() {
       {postsResult.loading ? (
         <div>Loading posts...</div>
       ) : (
-        postsResult.posts.map(
-          (
-            post // list of posts is just one of the things stored in the postsResult state object
-          ) => (
-            <div className="post" key={post.id}>
-              <h3>
-                Post #{post.id}: {post.title}
-              </h3>
-              <p>{post.body}</p>
-            </div>
-          )
-        )
+        postsResult.posts.map((post) => ( // list of posts is just one of the things stored in the postsResult state object
+          <div className="post" key={post.id}>
+            <h3>
+              Post #{post.id}: {post.title}
+            </h3>
+            <p>{post.body}</p>
+          </div>
+        ))
       )}
-      <div className="error">{postsResult.error}</div>{" "}
+      <div className="error">{postsResult.error}</div>
     </div>
   );
 }

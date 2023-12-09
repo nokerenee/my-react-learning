@@ -5,8 +5,9 @@ import useBitcoinPrice from "./UseBitcoinPrice"; // Import the custom hook
 const currencies = ["USD", "AUD", "NZD", "GBP", "EUR", "SGD"];
 
 function BitcoinRates() {
-  const { currency, setCurrency, bitcoinPrice } =
-    useBitcoinPrice(currencies[0]);
+  const { currency, setCurrency, bitcoinPrice } = useBitcoinPrice(
+    currencies[0]
+  );
 
   const options = currencies.map((curr) => (
     <option value={curr} key={curr}>

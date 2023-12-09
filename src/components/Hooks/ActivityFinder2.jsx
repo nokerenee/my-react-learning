@@ -1,16 +1,17 @@
 import { useState } from "react";
-import { useData } from "../Hooks/UseData";
+import { useData } from "./UseData";
 
-function ActivityFinder() {
-  // Fetches a random activity
+function ActivityFinder2() { // Fetches a random activity
 
   const [participants, setParticipants] = useState(1);
   const [activityType, setActivityType] = useState("relaxation");
 
-  // uses custom hook to handle the effect for loading external data 
-  const data = useData(`https://www.boredapi.com/api/activity?type=${activityType}&participants=${participants}`);
-  // get the activity from the json or show error message if failed 
-  const activity = data ? data.activity : 'not found';
+  // uses custom hook to handle the effect for loading external data
+  const data = useData(
+    `https://www.boredapi.com/api/activity?type=${activityType}&participants=${participants}`
+  );
+  // get the activity from the json or show error message if failed
+  const activity = data ? data.activity : "not found";
 
   const handleActivityTypeChange = (e) => {
     setActivityType(e.target.value);
@@ -23,7 +24,7 @@ function ActivityFinder() {
 
   return (
     <div className="ActivityFinder componentBox">
-      <h3>Activity Finder</h3>
+      <h3>Activity Finder 2</h3>
       <label>
         Choose number of participants:
         <select value={participants} onChange={handleParticipantsChange}>
@@ -49,7 +50,7 @@ function ActivityFinder() {
   );
 }
 
-export default ActivityFinder;
+export default ActivityFinder2;
 
 // ++ Reference https://www.boredapi.com/documentation and add a
 // new dropdown to suggest an activity based on type
