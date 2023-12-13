@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import CustomCard from "./CustomCard";
 import { Box } from "@mui/material";
 import BasicUsage, { StyledBox, StyledDiv } from "./BasicUsage";
-import MUIForm from "./MuiForm";
+import MUIForm from "./MUIForm";
 import MUIDialog from "./MUIDialog";
 
 // layout cards in a grid
