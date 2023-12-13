@@ -6,9 +6,9 @@ export default function MUIForm() {
   const [age, setAge] = useState(10);
   const onSubmit = function (e) {
     e.preventDefault();
-    console.log('submit', age);
+    console.log("submit", age);
   };
-  
+
   return (
     <form onSubmit={onSubmit}>
       <TextField
@@ -29,7 +29,9 @@ export default function MUIForm() {
           <MenuItem value={30}>Thirty</MenuItem>
         </Select>
       </FormControl>
-      <Button type="submit" variant="contained">Submit</Button>
+      <Button type="submit" variant="contained">
+        Submit
+      </Button>
     </form>
   );
 }

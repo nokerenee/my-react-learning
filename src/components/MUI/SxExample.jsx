@@ -2,7 +2,6 @@ import { Box } from "@mui/system";
 
 // Customising style using sx prop
 export default function SxExample() {
-    
   return (
     <Box
       sx={{
@@ -36,5 +35,7 @@ export default function SxExample() {
     </Box>
   );
 }
-// https://mui.com/system/getting-started/the-sx-prop/ has good tips // Camel-case the CSS properties // Some properties like margin and padding have special syntax
+// https://mui.com/system/getting-started/the-sx-prop/ has good tips
+// Camel-case the CSS properties
+// Some properties like margin and padding have special syntax
 // ++ Experiment with the sx prop in some existing MUI components

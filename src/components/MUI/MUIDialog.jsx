@@ -10,7 +10,7 @@ export default function MUIDialog({ text }) {
   const handleClickOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const handleOnSubmit = () => {
-    console.log('this is handleOnSubmit');
+    console.log("this is handleOnSubmit");
     setOpen(false);
   };
 
