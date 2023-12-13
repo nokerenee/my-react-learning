@@ -57,7 +57,7 @@ export function Post() {
           <p>{post.body}</p>
         </>
       ) : (
-        "Loading ..."
+        "Loading..."
       )}
     </div>
   );

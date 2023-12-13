@@ -1,4 +1,4 @@
-import { useUserContext } from "../Store/UserContext";
+import { useUserContext } from "../Store/Contexts/UserContext";
 
 export default function DashboardMessages(props) {
     const { currentUser } = useUserContext();

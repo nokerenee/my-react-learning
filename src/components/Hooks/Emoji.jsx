@@ -1,6 +1,6 @@
 // Exercise 3: 
 
-import { useEmojiContext } from "../../Store/EmojiContext";
+import { useEmojiContext } from "../../Store/Contexts/EmojiContext";
 
 function Emoji() {
   const { currentMood, changeMood } = useEmojiContext();

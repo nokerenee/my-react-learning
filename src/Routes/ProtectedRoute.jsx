@@ -1,5 +1,5 @@
 import { Outlet, Navigate } from "react-router-dom";
-import { useUserContext } from "../Store/UserContext";
+import { useUserContext } from "../Store/Contexts/UserContext";
 
 // wrap around logged-in user only routes to protect them
 function ProtectedRoute({ redirectPath = "/login", children }) {

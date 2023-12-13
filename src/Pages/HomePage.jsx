@@ -1,6 +1,6 @@
-import { useUserContext } from "../Store/UserContext";
+import { useUserContext } from "../Store/Contexts/UserContext";
 import ReducerCounter from "../components/Hooks/ReducerCounter";
-import { useCounterContext } from "../Store/CounterContext";
+import { useCounterContext } from "../Store/Contexts/CounterContext";
 import Todo from "../components/Todo";
 import ClockDisplay from "../components/Hooks/Clock";
 import ActivityFinder1 from "../components/Hooks/ActivityFinder1";

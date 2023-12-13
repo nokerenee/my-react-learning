@@ -1,5 +1,5 @@
 import React, { useReducer, useContext } from "react";
-import counterReducer from "./Reducers/CounterReducer";
+import counterReducer from "../Reducers/CounterReducer";
 
 const CounterContext = React.createContext();
 

@@ -1,4 +1,4 @@
-import { useCounterContext } from '../../Store/CounterContext';
+import { useCounterContext } from '../../Store/Contexts/CounterContext';
 
 function ReducerCounter() {
 
