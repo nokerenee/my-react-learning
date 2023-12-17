@@ -17,7 +17,7 @@ function LoginForm() {
     // } else if (userPassword === userEmail) {
     //   setSubmitResult("Password must not match email address");
     // } else {
-      setSubmitResult("Successful login.");
+      setSubmitResult("Successful login");
       handleUpdateUser({ email: "login@aa.com" }); // context function
     // }
   };
