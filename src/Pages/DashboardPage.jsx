@@ -1,3 +1,4 @@
+import { Button, TextField, Typography, Grid, Paper } from "@mui/material";
 import { useNavigate, Outlet } from "react-router-dom";
 
 export default function DashboardPage() {
@@ -5,16 +6,36 @@ export default function DashboardPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="DashboardPage componentBox">
-      <h1>Dashboard</h1>
+    <Grid container justifyContent="center" alignItems="center" height="100vh">
+      <Paper elevation={3} sx={{ p: 4, textAlign: "center" }}>
+        <Typography variant="h2" gutterBottom>
+          Dashboard
+        </Typography>
 
-      <Outlet />
-      {/* Will render either <DashboardMessages> when the URL is "/dash/messages", <DashboardTasks> at "/dash/tasks", or null if it is "/dash" */}
+        <Outlet />
 
-      <button onClick={() => navigate("/dash/tasks")}> Show Tasks</button>
-      <button onClick={() => navigate("/dash/messages")}> Show Messages</button>
-      <button onClick={() => navigate(-1)}> Back</button>
-    </div>
+        <Grid container spacing={2} justifyContent="center" mt={3}>
+          <Grid item>
+            <Button variant="contained" onClick={() => navigate("/dash/tasks")}>
+              Show Tasks
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              variant="contained"
+              onClick={() => navigate("/dash/messages")}
+            >
+              Show Messages
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button variant="outlined" onClick={() => navigate(-1)}>
+              Back
+            </Button>
+          </Grid>
+        </Grid>
+      </Paper>
+    </Grid>
   );
 }
 // ++ Move the <Outlet/> below the buttons and observe the change

@@ -1,3 +1,11 @@
+import {
+  Card,
+  CardContent,
+  Grid,
+  Typography,
+  Select,
+  MenuItem,
+} from "@mui/material";
 import { Outlet, useParams, Link, useSearchParams } from "react-router-dom";
 import { useData } from "../components/Hooks/UseData";
 
@@ -15,29 +23,46 @@ export function PostList() {
   const [searchParams, setSearchParams] = useSearchParams(); // import this hook
   const limit = searchParams.get("limit") ? searchParams.get("limit") : 5;
   const postsData = useData(
-    "https://jsonplaceholder.typicode.com/posts?_limit=" + limit
+    `https://jsonplaceholder.typicode.com/posts?_limit=${limit}`
   );
+
   const handleChangeLimit = (e) => {
     setSearchParams({ limit: e.target.value });
   };
+
   // the ? means only call map if postsData is not null
-  const postList = postsData?.map((post) => (
-    <li key={post.id}>
-      {" "}
-      <Link to={"/posts/" + post.id}>
-        {" "}
-        Post #{post.id}: {post.title}
-      </Link>{" "}
-    </li>
-  ));
+  // const postList = postsData?.map((post) => (
+  //   <li key={post.id}>
+  //     {" "}
+  //     <Link to={"/posts/" + post.id}>
+  //       {" "}
+  //       Post #{post.id}: {post.title}
+  //     </Link>{" "}
+  //   </li>
+  // ));
+
   return (
     <>
-      <ul>{postList}</ul> <Link to="/posts?limit=100">Load 100 Posts</Link>
-      <input
-        type={"number"}
-        defaultValue={null}
-        onChange={handleChangeLimit}
-      ></input>
+      <Select value={limit} onChange={handleChangeLimit}>
+        <MenuItem value={5}>5 Posts</MenuItem>
+        <MenuItem value={10}>10 Posts</MenuItem>
+        <MenuItem value={20}>20 Posts</MenuItem>
+      </Select>
+      <Grid container spacing={2}>
+        {postsData?.map((post) => (
+          <Grid item key={post.id} xs={12} sm={6} md={4}>
+            <Card>
+              <CardContent>
+                <Typography variant="h6" component="div">
+                  <Link to={`/posts/${post.id}`}>
+                    Post #{post.id}: {post.title}
+                  </Link>
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
     </>
   );
 }

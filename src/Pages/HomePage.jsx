@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Button, TextField, Typography } from "@mui/material";
 import { useUserContext } from "../Store/Contexts/UserContext";
 import ReducerCounter from "../components/Hooks/ReducerCounter";
 import { useCounterContext } from "../Store/Contexts/CounterContext";
@@ -13,29 +15,43 @@ import PostListReducer from "../components/Hooks/PostListReducer";
 export default function Homepage() {
   const { currentUser, handleUpdateUser } = useUserContext();
   const { counter } = useCounterContext();
-  let email = "";
+  const [email, setEmail] = useState("");
+
+  // let email = "";
   const handleSubmit = (e) => {
     e.preventDefault(); // prevent page reloading on form submit
     // console.log('e.target.email', e.target.email);
-    const data = new FormData(e.target);
-    const formObject = Object.fromEntries(data.entries());
-    handleUpdateUser({ email: formObject.email });
+    // const data = new FormData(e.target);
+    // const formObject = Object.fromEntries(data.entries());
+    handleUpdateUser({ email });
   };
+
   return (
     <>
       <div className="Homepage">
-        <h1>Home</h1>
-        {currentUser.email}
+        <Typography variant="h1">Home</Typography>
+        <Typography>{currentUser.email}</Typography>
         <div>Counter:{counter}</div>
         <div className="LoginForm componentBox">
           <form onSubmit={handleSubmit}>
             <div className="formRow">
-              <label>
-                Email Address:
-                <input type="email" defaultValue={email} name="email" />
-              </label>
+              <TextField
+                label="Email Address"
+                type="email"
+                variant="outlined"
+                fullWidth
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
-            <button type="submit">Submit</button>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              style={{ marginTop: 16 }}
+            >
+              Submit
+            </Button>
           </form>
         </div>
       </div>
@@ -46,15 +62,15 @@ export default function Homepage() {
 export function NicolePage() {
   return (
     <div className="Nicole">
-      <h1>Nicole's Page</h1>
+      <Typography variant="h1">Nicole's Page</Typography>
       <ClockDisplay />
       <ActivityFinder1 />
-      <ActivityFinder2/>
+      <ActivityFinder2 />
       <BitcoinRates />
       <RefCounter />
       <VideoPlayer />
-      <ReducerCounter/>
-      <PostListReducer/>
+      <ReducerCounter />
+      <PostListReducer />
       {/* <Todo /> */}
     </div>
   );

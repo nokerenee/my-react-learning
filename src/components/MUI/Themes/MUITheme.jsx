@@ -24,6 +24,6 @@ export default function MUITheme({ children }) {
       MuiTextField: { defaultProps: { variant: "filled" } },
     },
   });
-  
+
   return <ThemeProvider theme={tealTheme}>{children}</ThemeProvider>;
 }

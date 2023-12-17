@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button, TextField, Typography, Paper } from "@mui/material";
 import { useFormInput } from "../Hooks/UseFormInput";
 
 export default function SubscribeForm() {
@@ -15,16 +16,40 @@ export default function SubscribeForm() {
   }
 
   return (
-    <div className="SubscribeForm componentBox">
-      <label>
-        First name: <input {...nameInputProps} />
-      </label>
-      <label>
-        Email: <input {...emailInputProps} />
-      </label>
-      <button onClick={handleSubscribe}>Subscribe</button>
-      <div>{status}</div>
-    </div>
+    <Paper
+      elevation={3}
+      sx={{ p: 4, textAlign: "center", maxWidth: 400, margin: "auto" }}
+    >
+      <Typography variant="h5" gutterBottom>
+        Subscribe
+      </Typography>
+      <form>
+        <TextField
+          label="First Name"
+          variant="outlined"
+          fullWidth
+          {...nameInputProps}
+        />
+        <TextField
+          label="Email"
+          variant="outlined"
+          fullWidth
+          {...emailInputProps}
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleSubscribe}
+          fullWidth
+          mt={2}
+        >
+          Subscribe
+        </Button>
+      </form>
+      <Typography variant="body1" mt={2}>
+        {status}
+      </Typography>
+    </Paper>
   );
 }
 

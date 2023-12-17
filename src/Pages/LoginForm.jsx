@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { useUserContext } from "../Store/Contexts/UserContext";
+import { Button, TextField, Typography } from "@mui/material";
 
 function LoginForm() {
   const [userEmail, setUserEmail] = useState("");
-  const [userPassword, setUserPassword] = useState("");
+  // const [userPassword, setUserPassword] = useState("");
   const [submitResult, setSubmitResult] = useState("");
-  let email = "";
-  // destructure the context values passed via UserProvider
   const { currentUser, handleUpdateUser } = useUserContext();
+
+  // let email = "";
+  // destructure the context values passed via UserProvider
+  // const { currentUser, handleUpdateUser } = useUserContext();
   // alternative using the useContext hook directly, either works
   //const {currentUser, handleUpdateUser} = useContext(UserContext);
   const handleSubmit = (e) => {
@@ -17,8 +20,12 @@ function LoginForm() {
     // } else if (userPassword === userEmail) {
     //   setSubmitResult("Password must not match email address");
     // } else {
+    if (userEmail === "nrkelly57@gmail.com") {
       setSubmitResult("Successful login");
-      handleUpdateUser({ email: "login@aa.com" }); // context function
+      handleUpdateUser({ email: "nrkelly57@gmail.com" });
+    } else {
+      setSubmitResult("Invalid email");
+    }
     // }
   };
   {
@@ -29,21 +36,35 @@ function LoginForm() {
     <>
       {currentUser.email ? (
         <>
-          <p>Welcome {currentUser.email}!</p>{" "}
-          <button onClick={() => handleUpdateUser({})}>Log Out</button>{" "}
+          <Typography variant="h5">Welcome {currentUser.email}!</Typography>
+          <Button variant="outlined" onClick={() => handleUpdateUser({})}>
+            Log Out
+          </Button>{" "}
         </>
       ) : (
         <>
           <div className="LoginForm componentBox">
             <form onSubmit={handleSubmit}>
               <div className="formRow">
-                <label>
-                  Email Address:
-                  <input type="email" defaultValue={email} name="email" />
-                </label>
+                <TextField
+                  label="Email Address"
+                  type="email"
+                  variant="outlined"
+                  fullWidth
+                  value={userEmail}
+                  onChange={(e) => setUserEmail(e.target.value)}
+                />
               </div>
-              <button type="submit">Submit</button>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                style={{ marginTop: 16 }}
+              >
+                Submit
+              </Button>
             </form>
+            {submitResult && <Typography>{submitResult}</Typography>}
           </div>
         </>
       )}

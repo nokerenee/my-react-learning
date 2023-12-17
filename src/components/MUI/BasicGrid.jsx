@@ -13,7 +13,7 @@ export default function BasicGrid() {
   return (
     <>
       <StyledBox>
-        <MUIDialog text="hello!"></MUIDialog>
+        <MUIDialog text="My first MUI Dialog!"></MUIDialog>
         <StyledBox>
           <MUIForm></MUIForm>
         </StyledBox>

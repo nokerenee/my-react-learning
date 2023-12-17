@@ -3,6 +3,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
+
 // wraps the default MUI Card component to customise it with props
 export default function CustomCard({ title, children }) {
   return (
